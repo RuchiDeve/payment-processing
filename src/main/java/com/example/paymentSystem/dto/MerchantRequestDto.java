@@ -1,5 +1,7 @@
 package com.example.paymentSystem.dto;
+
 import lombok.Data;
+
 @Data
 public class MerchantRequestDto {
     private String companyName;

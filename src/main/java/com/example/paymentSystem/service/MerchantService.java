@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface MerchantService {
     MerchantResponseDto createMerchant(MerchantRequestDto merchantDto);
 
-    Optional<Merchant> findByEmail(String email);
+    MerchantResponseDto login(MerchantRequestDto merchantDto);
 
     MerchantResponseDto updateMerchant(Long id, MerchantRequestDto updatedMerchantDto);
 

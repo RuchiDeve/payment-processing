@@ -7,23 +7,18 @@ import com.example.paymentSystem.exception.InvalidCredentialsException;
 import com.example.paymentSystem.model.Merchant;
 import com.example.paymentSystem.repository.MerchantRepository;
 import com.example.paymentSystem.service.MerchantService;
+import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class MerchantServiceImpl implements MerchantService {
     private final MerchantRepository merchantRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
-
-
-    public MerchantServiceImpl(MerchantRepository merchantRepository, PasswordEncoder passwordEncoder, JwtService jwtService) {
-        this.merchantRepository = merchantRepository;
-        this.passwordEncoder = passwordEncoder;
-        this.jwtService = jwtService;
-    }
 
     @Override
     public MerchantResponseDto createMerchant(MerchantRequestDto merchantDto) {
@@ -80,15 +75,15 @@ public class MerchantServiceImpl implements MerchantService {
 
     private MerchantResponseDto convertToDto(Merchant merchant) {
 
-        MerchantResponseDto dto = new MerchantResponseDto();
-        dto.setId(merchant.getId());
-        dto.setCompanyName(merchant.getCompanyName());
-        dto.setAddress(merchant.getAddress());
-        dto.setBusinessType(merchant.getBusinessType());
-        dto.setEmail(merchant.getEmail());
-        dto.setPhoneNumber(merchant.getPhoneNumber());
-        dto.setBankAccountDetails(merchant.getBankAccountDetails());
-        return dto;
+        MerchantResponseDto dto1 = new MerchantResponseDto();
+        dto1.setId(merchant.getId());
+        dto1.setCompanyName(merchant.getCompanyName());
+        dto1.setAddress(merchant.getAddress());
+        dto1.setBusinessType(merchant.getBusinessType());
+        dto1.setEmail(merchant.getEmail());
+        dto1.setPhoneNumber(merchant.getPhoneNumber());
+        dto1.setBankAccountDetails(merchant.getBankAccountDetails());
+        return dto1;
     }
 
 }
